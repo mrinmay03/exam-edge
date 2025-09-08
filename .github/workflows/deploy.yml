@@ -3,7 +3,7 @@ name: Deploy Static Site to GitHub Pages
 on:
   push:
     branches:
-      - master  # Change to main if applicable
+      - master  # Or main
 
 jobs:
   deploy:
@@ -22,7 +22,7 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        personal_token: ${{ secrets.PERSONAL_TOKEN }}
         publish_dir: ./docs
         allow_empty_commit: true
         disable_nojekyll: true
