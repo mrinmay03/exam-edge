@@ -1,0 +1,400 @@
+/* ================= Base ================= */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background: #f9fafc;
+  display: flex;
+  flex-direction: column; /* Navbar on top */
+  min-height: 100vh;
+}
+
+/* ================= Navbar ================= */
+header {
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+/* ================= Layout Wrapper ================= */
+.wrapper {
+  display: flex;
+  flex: 1;
+  min-height: calc(100vh - 70px); /* subtract navbar height */
+}
+
+/* ================= Sidebar ================= */
+.sidebar {
+  width: 220px;
+  background: #f4f6f8;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.sidebar-title {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.sidebar-title i {
+  font-size: 18px;
+  width: 40px;
+  text-align: center;
+  color: #04bf62;
+}
+
+.sidebar-title span {
+  flex: 1;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+/* Collapsed Sidebar (fade text) */
+.sidebar.collapsed .sidebar-title span {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Sidebar Links */
+.sidebar a {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+  font-size: 15px;
+}
+
+.sidebar a i {
+  font-size: 16px;
+  width: 40px;
+  text-align: center;
+  color: #555;
+}
+
+.sidebar a span {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: #04bf62;
+  color: #fff;
+  transform: translateX(3px);
+}
+
+.sidebar a:hover i,
+.sidebar a.active i {
+  color: #fff;
+}
+
+/* Collapse Button */
+.collapse-btn {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  background: #e9ecef;
+  cursor: pointer;
+  margin-top: 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  transition: background 0.3s;
+}
+
+.collapse-btn i {
+  font-size: 16px;
+  width: 40px;
+  text-align: center;
+  color: #333;
+  transition: transform 0.3s ease;
+}
+
+.collapse-btn span {
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.collapse-btn:hover {
+  background: #ddd;
+}
+
+/* Collapsed Sidebar */
+.sidebar.collapsed {
+  width: 70px;
+}
+
+.sidebar.collapsed .sidebar-title span,
+.sidebar.collapsed a span,
+.sidebar.collapsed .collapse-btn span {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Flip arrow when collapsed */
+.sidebar.collapsed .collapse-btn i {
+  transform: rotate(180deg);
+}
+
+/* ================= Content ================= */
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Test Card */
+.test-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.test-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* ================= Buttons ================= */
+.btn {
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 5px;
+  transition: background 0.3s;
+}
+
+.btn-green {
+  background: #28a745;
+  color: #fff;
+}
+
+.btn-green:hover {
+  background: #218838;
+}
+
+.btn-blue {
+  background: #007bff;
+  color: #fff;
+}
+
+.btn-blue:hover {
+  background: #0056b3;
+}
+
+/* Make logout button like navbar links */
+.btn-logout {
+  background: none;
+  border: none;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: opacity 0.3s ease;
+  padding: 0;
+}
+
+.btn-logout:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+/* ================= Dashboard Widgets ================= */
+.dashboard-widgets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.widget {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.widget:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.widget h3 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.widget p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #04bf62;
+}
+
+/* ================= Table Section ================= */
+.table-section {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+  overflow-x: auto;
+}
+
+.table-section h2 {
+  margin-bottom: 1rem;
+  color: #04bf62;
+}
+
+.table-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-section table th,
+.table-section table td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.table-section table th {
+  background: #f4f6f8;
+  color: #333;
+  font-weight: 600;
+}
+
+.table-section table tr:hover {
+  background: #f1f7f5;
+}
+
+/* Action buttons in table */
+.table-section .btn-edit {
+  background: #007bff;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.table-section .btn-edit:hover {
+  background: #0056b3;
+}
+
+.table-section .btn-delete {
+  background: #dc3545;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.table-section .btn-delete:hover {
+  background: #c82333;
+}
+
+/* ================= Charts Section ================= */
+.charts-section {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+}
+
+.charts-section h2 {
+  margin-bottom: 1rem;
+  color: #04bf62;
+}
+
+/* Chart Placeholder */
+.chart-placeholder {
+  height: 250px;
+  background: #f4f6f8;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 1px dashed #ccc;
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 992px) {
+  .dashboard-widgets {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .table-section table th,
+  .table-section table td {
+    font-size: 0.85rem;
+  }
+
+  .sidebar {
+    width: 70px;
+  }
+
+  .sidebar.collapsed {
+    width: 70px;
+  }
+
+  .sidebar a span,
+  .sidebar-title span {
+    display: none;
+  }
+}

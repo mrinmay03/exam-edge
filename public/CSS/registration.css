@@ -1,0 +1,129 @@
+/* ========== Global Reset ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* ========== Navbar ========== */
+header {
+  background: #04bf62;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+/* ========== Registration Container ========== */
+.reg-container {
+  background: white;
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.reg-container h2 {
+  margin-bottom: 1.8rem;
+  color: #04bf62;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+/* ========== Form Inputs ========== */
+.input-group {
+  margin-bottom: 1.3rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+input:focus {
+  border-color: #04bf62;
+  outline: none;
+}
+
+/* ========== Buttons ========== */
+button,
+a.login-button {
+  display: block;
+  width: 100%;
+  padding: 0.9rem;
+  background: #04bf62;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+button:hover,
+a.login-button:hover {
+  background: #0c6d37;
+}
+
+/* ========== Notes ========== */
+.small-note,
+.login-note {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.small-note a {
+  color: #0f8c48;
+  text-decoration: none;
+}
+
+.small-note a:hover {
+  text-decoration: underline;
+}

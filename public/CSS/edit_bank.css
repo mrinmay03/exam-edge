@@ -1,0 +1,738 @@
+/* ================= Base ================= */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background: #f9fafc;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ================= Navbar ================= */
+header {
+  background: #04bf62;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+.btn-logout {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: opacity 0.3s ease;
+  padding: 0;
+}
+
+.btn-logout:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+/* ================= Layout Wrapper ================= */
+.wrapper {
+  display: flex;
+  flex: 1;
+  min-height: calc(100vh - 70px);
+  transition: all 0.3s ease;
+}
+
+/* ================= Sidebar ================= */
+.sidebar {
+  width: 220px;
+  background: #f4f6f8;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.sidebar-title {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.sidebar-title i {
+  font-size: 18px;
+  width: 40px;
+  text-align: center;
+  color: #04bf62;
+}
+
+.sidebar-title span {
+  flex: 1;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-title span {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+  font-size: 15px;
+}
+
+.sidebar a i {
+  font-size: 16px;
+  width: 40px;
+  text-align: center;
+  color: #555;
+}
+
+.sidebar a span {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: #04bf62;
+  color: #fff;
+  transform: translateX(3px);
+}
+
+.sidebar a:hover i,
+.sidebar a.active i {
+  color: #fff;
+}
+
+.collapse-btn {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  background: #e9ecef;
+  cursor: pointer;
+  margin-top: 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  transition: background 0.3s;
+}
+
+.collapse-btn i {
+  font-size: 16px;
+  width: 40px;
+  text-align: center;
+  color: #333;
+  transition: transform 0.3s ease;
+}
+
+.collapse-btn span {
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.collapse-btn:hover {
+  background: #ddd;
+}
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+.sidebar.collapsed .sidebar-title span,
+.sidebar.collapsed a span,
+.sidebar.collapsed .collapse-btn span {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar.collapsed .collapse-btn i {
+  transform: rotate(180deg);
+}
+
+/* ===== Secondary Sidebar ===== */
+.secondary-sidebar {
+  width: 250px;
+  background: #ffffff;
+  color: #000000;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: width 0.3s ease, padding 0.3s ease;
+}
+
+.secondary-sidebar a i {
+  font-size: 16px;
+  width: 40px;
+  text-align: center;
+  color: #555;
+}
+
+.secondary-sidebar.collapsed {
+  width: 250px;
+  overflow: hidden;
+}
+
+.secondary-sidebar h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.secondary-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.secondary-sidebar li {
+  margin-bottom: 10px;
+}
+
+.secondary-sidebar a {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+  font-size: 15px;
+}
+
+.secondary-sidebar a:hover, 
+.secondary-sidebar a.active {
+  background: #04bf62;
+  color: #fff;
+  transform: translateX(3px);
+}
+
+/* ===== Content Area ===== */
+.content-area {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+.content-section {
+  display: none;
+}
+
+.content-section.active {
+  display: block;
+}
+
+/* ================= Smooth Transitions ================= */
+.sidebar,
+.secondary-sidebar,
+.content-area {
+  transition: all 0.3s ease;
+}
+
+/* ===== Shared Panel Styling ===== */
+.content-section {
+  background: #fff;
+  padding: 20px 30px 30px 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin: 0px auto;
+  max-width: 900px;
+  box-sizing: border-box;
+}
+
+.content-section input,
+.content-section textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: 12px 15px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.content-section h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.content-section input:focus,
+.content-section textarea:focus {
+  border-color: #04bf62;
+  box-shadow: 0 0 5px rgba(4, 191, 98, 0.3);
+  outline: none;
+}
+
+.content-section textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.content-section button {
+  background: #04bf62;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.content-section button:hover {
+  background: #039e54;
+  transform: translateY(-1px);
+}
+
+/* ===== Modal ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  width: 400px;
+  border-radius: 8px;
+  position: relative;
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-action-btn {
+  display: block;
+  width: 80%;
+  padding: 10px;
+  margin: 10px auto;
+  font-size: 1rem;
+  background-color: #04bf62;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-action-btn:hover {
+  background-color: #039a51;
+}
+
+/* ===== Manual Question Form ===== */
+#manualQuestionForm {
+  display: none;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+#manualQuestionForm input,
+#manualQuestionForm select,
+#manualQuestionForm textarea {
+  width: 95%;
+  margin: 12px auto;
+  display: block;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+#manualQuestionForm button {
+  background: #04bf62;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 25px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s, transform 0.2s;
+  display: block;
+  margin: 20px auto 0;
+}
+
+#manualQuestionForm button:hover {
+  background: #039e54;
+  transform: translateY(-1px);
+}
+
+/* ===== Question Manager Header + Buttons ===== */
+.question-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.question-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.question-actions .action-btn {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  background-color: #04bf62;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.question-actions .action-btn:hover {
+  background-color: #039153;
+}
+
+/* ===== Question List Container ===== */
+#questionListContainer {
+  max-height: 90%;
+  overflow-y: auto;
+  padding-right: 10px;
+  margin-top: 0px;
+  transition: max-height 0.3s ease;
+}
+
+#questionListContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+#questionListContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+#questionListContainer::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 4px;
+}
+
+/* Individual Question Cards */
+.question-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  transition: all 0.2s ease-in-out;
+}
+
+.question-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.question-item .question-header {
+  font-weight: 600;
+  font-size: 1.05em;
+  color: #333;
+  margin-bottom: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.question-item .options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.question-item .option {
+  padding: 8px 10px;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  font-weight: 500;
+}
+
+.question-item .option.right {
+  background-color: #04bf62;
+  color: #fff;
+  font-weight: 600;
+}
+
+.question-item .meta {
+  font-size: 0.85em;
+  color: #666;
+  margin-top: 8px;
+  display: flex;
+  gap: 12px;
+}
+
+.question-item .solution {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #444;
+  background: #f7f7f7;
+  padding: 8px;
+  border-radius: 5px;
+  border-left: 4px solid #04bf62;
+}
+
+/* Excel Upload Form Styling */
+/* ================= Modal Base ================= */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent background */
+  display: none;
+  /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  width: 400px;
+  max-width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #e63946;
+}
+
+/* Modal Main Buttons */
+.modal-action-btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  background: #04bf62;
+  color: white;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.modal-action-btn:hover {
+  background: #039f54;
+  transform: translateY(-2px);
+}
+
+/* ================= Excel Upload Form ================= */
+#excelUploadForm {
+  display: none;
+  /* Hidden initially */
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: center;
+}
+
+#excelUploadForm label {
+  font-weight: 500;
+  color: #333;
+}
+
+#excelUploadForm input[type="file"] {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+#excelUploadForm button {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.95rem;
+}
+
+#excelUploadForm button[type="submit"] {
+  background: #04bf62;
+  color: white;
+  transition: background 0.2s, transform 0.2s;
+}
+
+#excelUploadForm button[type="submit"]:hover {
+  background: #039f54;
+  transform: translateY(-2px);
+}
+
+#excelUploadForm button#cancelExcelUpload {
+  background: #e63946;
+  color: white;
+  transition: background 0.2s, transform 0.2s;
+}
+
+#excelUploadForm button#cancelExcelUpload:hover {
+  background: #c92a2a;
+  transform: translateY(-2px);
+}
+
+/* ================= Animations ================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* ===== Toast ===== */
+#toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  color: #fff;
+  display: none;
+  z-index: 999;
+  font-weight: bold;
+}
+
+#toast.show {
+  display: block;
+  animation: fadein 0.3s, fadeout 0.3s 2.7s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* ===== Responsive ===== */
+@media screen and (max-width: 1024px) {
+  .secondary-sidebar {
+    display: none;
+  }
+
+  .content-area {
+    max-width: 100%;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 60px;
+  }
+
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .content-area {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .question-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

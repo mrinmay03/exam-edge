@@ -1,0 +1,353 @@
+/* ================= Base ================= */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background: #f9fafc;
+  display: flex;
+  flex-direction: column; /* Navbar on top */
+  min-height: 100vh;
+}
+
+/* ================= Navbar ================= */
+header {
+  background: #04bf62;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+/* Make logout button like navbar links */
+.btn-logout {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: opacity 0.3s ease;
+  padding: 0;
+}
+
+.btn-logout:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+/* ================= Layout Wrapper ================= */
+.wrapper {
+  display: flex;
+  flex: 1;
+  min-height: calc(100vh - 70px); /* subtract navbar height */
+}
+
+/* ================= Sidebar ================= */
+.sidebar {
+  width: 220px;
+  background: #f4f6f8;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.sidebar-title {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.sidebar-title i {
+  font-size: 18px;
+  width: 40px;
+  text-align: center;
+  color: #04bf62;
+}
+
+.sidebar-title span {
+  flex: 1;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+/* Collapsed Sidebar (fade text) */
+.sidebar.collapsed .sidebar-title span {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Sidebar Links */
+.sidebar a {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+  font-size: 15px;
+}
+
+.sidebar a i {
+  font-size: 16px;
+  width: 40px;
+  text-align: center;
+  color: #555;
+}
+
+.sidebar a span {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: #04bf62;
+  color: #fff;
+  transform: translateX(3px);
+}
+
+.sidebar a:hover i,
+.sidebar a.active i {
+  color: #fff;
+}
+
+/* Collapse Button */
+.collapse-btn {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  background: #e9ecef;
+  cursor: pointer;
+  margin-top: 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  transition: background 0.3s;
+}
+
+.collapse-btn i {
+  font-size: 16px;
+  width: 40px;
+  text-align: center;
+  color: #333;
+  transition: transform 0.3s ease;
+}
+
+.collapse-btn span {
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.collapse-btn:hover {
+  background: #ddd;
+}
+
+/* Collapsed Sidebar */
+.sidebar.collapsed {
+  width: 70px;
+}
+
+.sidebar.collapsed .sidebar-title span,
+.sidebar.collapsed a span,
+.sidebar.collapsed .collapse-btn span {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Flip arrow when collapsed */
+.sidebar.collapsed .collapse-btn i {
+  transform: rotate(180deg);
+}
+/* ========== Main Content ================= */
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.content h2 {
+  color: #04bf62;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* ===== Actions Section ===== */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+  align-items: center;
+  position: relative;
+}
+
+/* Add User Button */
+.actions .btn-green {
+  background: #28a745;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.actions .btn-green i {
+  margin-right: 8px;
+}
+
+.actions .btn-green:hover {
+  background: #218838;
+}
+
+/* Search Input */
+.actions input#searchUser {
+  flex: 1;
+  min-width: 200px;
+  max-width: 400px;
+  padding: 12px 40px 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+}
+
+.actions input#searchUser:focus {
+  border-color: #04bf62;
+  box-shadow: 0 0 8px rgba(4,191,98,0.3);
+}
+
+/* Stack vertically on small screens */
+@media (max-width: 768px) {
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .actions .btn-green,
+  .actions input#searchUser {
+    width: 100%;
+  }
+}
+
+/* ========== Table Section ================= */
+.table-section {
+  margin-top: 20px;
+  overflow-x: auto;
+  border-radius: 8px;
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.table-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-section th,
+.table-section td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.table-section th {
+  background: #f4f6f8;
+  color: #333;
+  font-weight: 600;
+}
+
+.table-section tbody tr:hover {
+  background: #f1f7f5;
+}
+
+/* Action buttons in table */
+.table-section .btn-edit {
+  background: #28a745;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.table-section .btn-edit:hover {
+  background: #218838;
+}
+
+.table-section .btn-delete {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.table-section .btn-delete:hover {
+  background: #c82333;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 60px;
+  }
+  .sidebar.collapsed {
+    width: 60px;
+  }
+  .table-section table,
+  .dashboard-widgets {
+    font-size: 12px;
+  }
+  .btn, .btn-green, .btn-edit, .btn-delete {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+}

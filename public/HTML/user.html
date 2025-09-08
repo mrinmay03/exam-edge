@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Panel</title>
+    <link rel="stylesheet" href="/CSS/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="/JS/user.js" defer></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="/" class="logo">Exam Edge</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="/myaccount">My Account</a></li>
+                <li><a href="javascript:void(0)" id="logoutBtn">Log Out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <aside class="sidebar" id="sidebar">
+            <!-- Dynamic username -->
+            <h2 class="sidebar-title"><i class="fas fa-user"></i><span id="sidebar-username">User</span></h2>
+
+            <a href="#" class="active"><i class="fas fa-layer-group"></i><span>Test Series</span></a>
+            <a href="#"><i class="fas fa-file-alt"></i><span>Previous Year Papers</span></a>
+            <a href="#"><i class="fas fa-lightbulb"></i><span>Practice</span></a>
+            <a href="#"><i class="fas fa-check-circle"></i><span>Attempted Tests</span></a>
+            <a href="#"><i class="fas fa-bookmark"></i><span>Saved Questions</span></a>
+            <a href="/myaccount"><i class="fas fa-user-cog"></i><span>My Account</span></a>
+            <a href="#"><i class="fas fa-headset"></i><span>Feedback</span></a>
+
+            <button class="collapse-btn" onclick="toggleSidebar()">
+                <i class="fas fa-angle-double-left"></i><span></span>
+            </button>
+        </aside>
+
+        <main class="content">
+            <h2>My Tests</h2>
+            <p>Welcome! You are logged in securely.</p>
+        </main>
+    </div>
+</body>
+
+</html>

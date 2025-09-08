@@ -1,0 +1,159 @@
+/* ========== Global Reset ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background: #f0f4f3;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* ========== Navbar ========== */
+header {
+  background: #04bf62;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+/* ========== Login Container ========== */
+.login-container {
+  background: white;
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.login-container h2 {
+  margin-bottom: 1.8rem;
+  color: #04bf62;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+/* ========== Input Fields ========== */
+.input-group {
+  margin-bottom: 1.3rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+input:focus {
+  border-color: #0f8c48;
+  outline: none;
+}
+
+/* ========== Buttons ========== */
+button,
+a.signup-button {
+  display: block;
+  width: 100%;
+  padding: 0.9rem;
+  background: #04bf62;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+button:hover,
+a.signup-button:hover {
+  background: #0c6d37;
+}
+
+/* ========== Options ========== */
+.options {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.options a {
+  color: #0f8c48;
+  text-decoration: none;
+}
+
+.options a:hover {
+  text-decoration: underline;
+}
+
+/* ========== Signup Note ========== */
+.signup-note {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* ========== Messages ========== */
+.message {
+  margin-top: 1rem;
+  padding: 0.9rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  text-align: center;
+  display: none;
+  transition: all 0.3s ease;
+}
+
+.message.success {
+  background-color: #e6ffed;
+  color: #1a7f37;
+  border: 1px solid #1a7f37;
+}
+
+.message.error {
+  background-color: #ffe6e6;
+  color: #d93025;
+  border: 1px solid #d93025;
+}
