@@ -106,14 +106,18 @@ app.get("/myaccount", (req, res) => {
   } else res.redirect("/login");
 });
 
-// ===== MongoDB Connection =====
-mongoose
-  .connect("mongodb://127.0.0.1:27017/exam-edge", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("✅ MongoDB connected"))
-  .catch((err) => console.error("❌ MongoDB connection error:", err));
+// OLD (won't work on Render)
+mongoose.connect('mongodb://127.0.0.1:27017/exam-edge', { 
+  useNewUrlParser: true, 
+  useUnifiedTopology: true 
+});
+
+// NEW (replace <username>, <password>, <dbname>)
+mongoose.connect('mongodb+srv://mrinmay03:Mrinmay@03@exam-edge.urtbnak.mongodb.net/?retryWrites=true&w=majority&appName=exam-edge', { 
+  useNewUrlParser: true, 
+  useUnifiedTopology: true 
+});
+
 
 // ===== Start Server =====
 const PORT = process.env.PORT || 5000;
