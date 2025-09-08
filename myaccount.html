@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account</title>
+  <link rel="stylesheet" href="/CSS/myaccount.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <a href="/" class="logo">Exam Edge</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="/myaccount">My Account</a></li>
+        <li><a href="javascript:void(0)" id="logoutBtn">Log Out</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="wrapper">
+    <aside class="sidebar" id="sidebar">
+      <!-- Dynamic username -->
+      <h2 class="sidebar-title"><i class="fas fa-user"></i><span id="sidebar-username">User</span></h2>
+
+      <a href="/user"><i class="fas fa-layer-group"></i><span>Test Series</span></a>
+      <a href="#"><i class="fas fa-file-alt"></i><span>Previous Year Papers</span></a>
+      <a href="#"><i class="fas fa-lightbulb"></i><span>Practice</span></a>
+      <a href="#"><i class="fas fa-check-circle"></i><span>Attempted Tests</span></a>
+      <a href="#"><i class="fas fa-bookmark"></i><span>Saved Questions</span></a>
+      <a href="/myaccount"  class="active"><i class="fas fa-user-cog"></i><span>My Account</span></a>
+      <a href="#"><i class="fas fa-headset"></i><span>Feedback</span></a>
+
+      <button class="collapse-btn" onclick="toggleSidebar()">
+        <i class="fas fa-angle-double-left"></i><span></span>
+      </button>
+    </aside>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="personal">Personal Info</button>
+      <button class="tab-btn" data-tab="password">Change Password</button>
+    </div>
+
+    <!-- Tab Contents -->
+    <div class="tab-content" id="personal">
+      <form id="accountForm">
+        <h2>Personal Information</h2>
+        <div class="input-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" disabled>
+        </div>
+        <div class="input-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" disabled>
+        </div>
+        <div class="input-group">
+          <label for="phone">Mobile No</label>
+          <input type="tel" id="phone" disabled>
+        </div>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" disabled>
+        </div>
+        <div class="actions">
+          <button type="button" id="editBtn">Edit</button>
+          <button type="submit" id="saveBtn" style="display:none">Save</button>
+          <button type="button" id="cancelBtn" style="display:none">Cancel</button>
+        </div>
+        <p id="message"></p>
+      </form>
+    </div>
+
+    <div class="tab-content" id="password" style="display:none;">
+      <form id="passwordForm">
+        <h2>Change Password</h2>
+        <div class="input-group">
+          <label for="currentPassword">Current Password</label>
+          <input type="password" id="currentPassword" required>
+        </div>
+        <div class="input-group">
+          <label for="newPassword">New Password</label>
+          <input type="password" id="newPassword" required>
+        </div>
+        <div class="input-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" required>
+        </div>
+        <button type="submit">Update Password</button>
+        <p id="passwordMessage"></p>
+      </form>
+    </div>
+
+    <script src="/JS/myaccount.js" defer></script>
+</body>
+
+</html>
