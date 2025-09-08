@@ -3,7 +3,7 @@ name: Deploy Static Site to GitHub Pages
 on:
   push:
     branches:
-      - master  # Change to main if applicable
+      - master  # or main if your branch is named main
 
 jobs:
   deploy:
@@ -17,9 +17,6 @@ jobs:
       run: |
         mkdir -p docs
         cp -r public/HTML/* docs/
-
-    - name: Create .nojekyll file
-      run: |
         touch docs/.nojekyll
 
     - name: Deploy to GitHub Pages
@@ -27,3 +24,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs
+        clean: true       # Force full clean deploy
