@@ -107,10 +107,10 @@ app.get("/myaccount", (req, res) => {
 });
 
 // OLD (won't work on Render)
-mongoose.connect('mongodb://127.0.0.1:27017/exam-edge', { 
+/*mongoose.connect('mongodb://127.0.0.1:27017/exam-edge', { 
   useNewUrlParser: true, 
   useUnifiedTopology: true 
-});
+});*/
 
 // NEW (replace <username>, <password>, <dbname>)
 mongoose.connect('mongodb+srv://mrinmay03:Mrinmay@03@exam-edge.urtbnak.mongodb.net/?retryWrites=true&w=majority&appName=exam-edge', { 
