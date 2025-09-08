@@ -1,23 +1,29 @@
 {
-  "name": "mocktest-app",
+  "name": "exam-edge",
   "version": "1.0.0",
+  "description": "Exam Edge Node.js application",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
+  "author": "Mrinmay Ganguly",
+  "license": "MIT",
   "dependencies": {
-    "bcryptjs": "^3.0.2",
-    "cookie-parser": "^1.4.7",
+    "express": "^4.18.2",
+    "bcryptjs": "^2.4.3",
+    "multer": "^1.4.4",
+    "xlsx": "^0.18.5",
+    "mongoose": "^7.3.1",
+    "cookie-parser": "^1.4.6",
+    "express-session": "^1.17.3",
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "ejs": "^3.1.10",
-    "express": "^4.21.2",
-    "express-session": "^1.18.2",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^7.8.7",
-    "multer": "^2.0.2"
+    "ejs": "^3.1.9",
+    "dotenv": "^16.3.1",
+    "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.2"
   }
 }
